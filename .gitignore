@@ -17,6 +17,9 @@ Thumbs.db
 *.log
 logs/
 
+# TestNG output folder
+test-output/
+
 # WebDriver binaries
 chromedriver
 chromedriver.exe
