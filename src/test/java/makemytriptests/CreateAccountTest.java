@@ -1,7 +1,6 @@
 package makemytriptests;
 
 import org.testng.annotations.Test;
-
 import makemytrippages.CreateAccount;
 
 public class CreateAccountTest extends Base {

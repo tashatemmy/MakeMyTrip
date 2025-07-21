@@ -1,8 +1,9 @@
 package makemytriptests;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import makemytrippages.FlightSearch;
 import makemytrippages.Login;
 
@@ -37,10 +38,24 @@ public class FlightSearchTests extends Base {
 		fs.invalidCityInput("Baltimore, Maryland");
 	}
 	
-	@Test
+	@Test(groups = {"flightsearch", "regression", "positive"}, priority = 4)
 	public void validMultiTest_FS10() throws InterruptedException {
 		FlightSearch fs = new FlightSearch(driver);
-		fs.validMultiCityFlightSearch( "heathrow Airport, UK", "Los Angeles");
+		fs.validMultiCityFlightSearch( "heathrow Airport, UK", "Los Angeles, US");
+	}
+	
+
+	@AfterMethod(alwaysRun = true)
+	public void teardown(ITestResult result) {
+		String[] groups = result.getMethod().getGroups();
+	    for (String group : groups) {
+	        if (group.equals("positive")) {
+		FlightSearch fs = new FlightSearch(driver);
+		fs.flightsearchTeardown(driver);
+	        }else if (group.equals("negative") & driver != null ){
+	        	driver.close();
+	        }
+	}
 	}
 
 }

@@ -3,7 +3,7 @@ package makemytriptests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -12,7 +12,7 @@ public class Base {
 	String browser;
 	String url;
 	
-	@BeforeClass
+	@BeforeMethod
 	public void browserSetup() {
 		url = "https://makemytrip.global";
 		browser = "chrome";
@@ -32,5 +32,6 @@ public class Base {
 			
 		}
 	}
+
 
 }

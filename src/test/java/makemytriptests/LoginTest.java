@@ -1,7 +1,7 @@
 package makemytriptests;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
 import makemytrippages.Login;
 
 public class LoginTest extends Base {
@@ -25,5 +25,13 @@ public class LoginTest extends Base {
 		login.invalidmobileLogin();
 		
 	}
+	
+	@AfterMethod
+	public void tearDown() {
+		if (driver != null)
+		driver.close();
+	}
 
 }
+
+

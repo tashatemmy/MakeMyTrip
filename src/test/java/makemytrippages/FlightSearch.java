@@ -25,6 +25,7 @@ public class FlightSearch {
 		js = (JavascriptExecutor) driver;
 	}
 	
+	
 	@FindBy(xpath = "//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[1]/ul/li[1]")
 	WebElement typeOneWay;
 	@FindBy(xpath = "//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[1]/ul/li[2]")
@@ -73,6 +74,14 @@ public class FlightSearch {
 	WebElement anotherDeparture2;
 	@FindBy(className = "datePickerContainer")
 	WebElement dateContainer;
+	@FindBy(xpath="//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[2]/div[1]/div[3]/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div[3]/div[1]/div[6]/div/p")
+	WebElement dateAug1st;
+	@FindBy(xpath ="//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div")
+	WebElement banner;
+	@FindBy(xpath= "//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/p/a")
+	WebElement multiSearch;
+	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[1]/div")
+	WebElement searchResult;
 	
 	
 	
@@ -204,6 +213,7 @@ public class FlightSearch {
 		toSecondCity.click();
 		wait.until(ExpectedConditions.visibilityOf(toTypeArea2));
 		toTypeArea2.sendKeys(city3);
+		Thread.sleep(2000);
 		toTypeArea2.sendKeys(Keys.ARROW_DOWN);
 		toTypeArea2.sendKeys(Keys.ENTER);
 		action.moveToElement(date25th).perform();
@@ -218,16 +228,25 @@ public class FlightSearch {
 		toThirdCity.click();
 		wait.until(ExpectedConditions.visibilityOf(toTypeArea3));
 		toTypeArea3.sendKeys(city4);
+		Thread.sleep(2000);
 		toTypeArea3.sendKeys(Keys.ARROW_DOWN);
 		toTypeArea3.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].scrollTop = arguments[1];", dateContainer, 700);
-		action.moveToElement(date25th).perform();
-		wait.until(ExpectedConditions.visibilityOf(date25th));
-		date25th.click();
+//		wait.until(ExpectedConditions.visibilityOf(dateContainer));
+//		js.executeScript("arguments[0].scrollTop = arguments[1];", dateContainer, 700);
+		action.moveToElement(dateAug1st).perform();
+		wait.until(ExpectedConditions.visibilityOf(dateAug1st));
+		dateAug1st.click();
+		js.executeScript("arguments[0].scrollIntoView(true);", banner);
+		js.executeScript("arguments[0].click()", multiSearch);
 		
-		search.click();
 		
-		
+	}
+	
+	public void flightsearchTeardown(WebDriver driver) {
+		wait.until(ExpectedConditions.visibilityOf(searchResult));
+		if(driver != null) {
+			driver.quit();
+		}
 	}
 
 	
