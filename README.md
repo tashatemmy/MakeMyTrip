@@ -2,7 +2,7 @@ This project is a Quality Assurance Product test for a simulated Flight and Hote
 
 This project demonstrates: end-to-end manual and automated test coverage, testing of realistic user flows on a booking website, Practice and present skills in Selenium automation, test design, and framework usage
 
-# Tested Features:
+## Tested Features:
 # Manual Testing:
 - Account Creation & Login (positive and negative scenarios)
 - One-way, Round-trip  and Multi-City Flight Search
@@ -18,8 +18,12 @@ This project demonstrates: end-to-end manual and automated test coverage, testin
 - Form validation tests for invalid data
 - Regression and smoke test tagging using TestNG groups
 
+## 🎥 Automation Demo
 
-# GETTING STARTED
+Watch the full test automation demo 👉 [MakeMyTrip.AutomationDemo](https://www.loom.com/share/ccd4f37297d64e54b695be56cd5d44f1?sid=3659a3d0-a04c-48af-b9f5-a00047784a65)
+
+
+## GETTING STARTED
 Follow the steps below to set up and run the automation tests:
 
 # 1. Clone the Repository
