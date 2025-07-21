@@ -2,7 +2,6 @@ This project is a Quality Assurance Product test for a simulated Flight and Hote
 
 This project demonstrates: end-to-end manual and automated test coverage, testing of realistic user flows on a booking website, Practice and present skills in Selenium automation, test design, and framework usage
 
-
 Tested Features:
 Manual Testing:
 - Account Creation & Login (positive and negative scenarios)
@@ -19,10 +18,38 @@ Automated Testing (Selenium + Java + TestNG)
 - Form validation tests for invalid data
 - Regression and smoke test tagging using TestNG groups
 
-Tech Stacks
-Java - Programming language
-Selenium WebDriver - Browser automation
-TestNG - Test execution and grouping
-Maven - Dependency and project management
-ChromeDriver & SafariDriver - Browserdrivers (browser control)	
+
+# GETTING STARTED
+Follow the steps below to set up and run the automation tests:
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/tashatemmy/MakeMyTrip.git
+cd MakeMyTrip
+```
+2. Open in Eclipse
+Launch Eclipse IDE
+
+Go to File → Import → Existing Maven Project
+
+Select the cloned project folder
+
+3. Install Dependencies
+Maven will auto-download dependencies. If not, run:
+```bash
+mvn clean install
+```
+4. Configure & Run Tests
+Ensure TestNG is installed in Eclipse
+
+Run all tests via testng.xml
+or
+Right-click any test class → Run As → TestNG Test
+
+5. View Test Results
+Results appear in the Eclipse Console
+
+Test reports are saved under the /test-output folder (HTML format)
+
+
 
