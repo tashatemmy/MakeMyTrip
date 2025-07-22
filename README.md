@@ -18,6 +18,13 @@ This project demonstrates: end-to-end manual and automated test coverage, testin
 - Form validation tests for invalid data
 - Regression and smoke test tagging using TestNG groups
 
+## Test Deliverables
+- [Test Summary Report](https://docs.google.com/document/d/1kq0lUnEchO4in9Uo_E_VYhAiws3Qa4ItLbOt-vFYIJQ/edit?tab=t.lndx8pmf1fzt)
+- [Test Plan Document](https://docs.google.com/document/d/1kq0lUnEchO4in9Uo_E_VYhAiws3Qa4ItLbOt-vFYIJQ/edit?tab=t.0)
+- [Test Design Techniques](https://docs.google.com/spreadsheets/d/13YrHYP88K2DE1zkTQo0TKhn4Vp-No0_MXYGlOzjdRaQ/edit?gid=0#gid=0)
+- [Test Cases](https://docs.google.com/spreadsheets/d/13YrHYP88K2DE1zkTQo0TKhn4Vp-No0_MXYGlOzjdRaQ/edit?gid=1820225942#gid=1820225942)
+- [Bug Report](https://docs.google.com/spreadsheets/d/13YrHYP88K2DE1zkTQo0TKhn4Vp-No0_MXYGlOzjdRaQ/edit?gid=160664166#gid=160664166)
+
 # 🎥 Automation Demo
 
 Watch the full test automation demo 👉 [MakeMyTrip.AutomationDemo](https://www.loom.com/share/ccd4f37297d64e54b695be56cd5d44f1?sid=3659a3d0-a04c-48af-b9f5-a00047784a65)
