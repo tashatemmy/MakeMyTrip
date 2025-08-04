@@ -52,6 +52,10 @@ public class FlightSearch {
 	WebElement dateAug29th;
 	@FindBy(xpath ="//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[2]/div[1]/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div[3]/div[6]/div[1]/div/p[1]")
 	WebElement dateAug31st;
+	@FindBy(xpath = "//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[2]/div[1]/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div[3]/div[3]/div[2]/div/p[1]")
+	WebElement dateforOneWay;
+	@FindBy(xpath = "//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[2]/div[1]/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div[3]/div[3]/div[4]/div/p[1]")
+	WebElement dateforRoundTrip;
 	@FindBy(xpath = "//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[2]/div[1]/div[5]/div[1]/div[1]/ul[1]/li[2]")
 	WebElement adult2;
 	@FindBy(xpath ="//*[@id=\"top-banner\"]/div[2]/div/div[1]/div/div/div/div[2]/div[1]/div[5]/div[1]/div[2]/button")
@@ -82,6 +86,8 @@ public class FlightSearch {
 	WebElement multiSearch;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div[2]/div/div[1]/div[1]/div")
 	WebElement searchResult;
+	@FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/div/div/nav/ul/li[1]/span/a")
+	WebElement searchResult2;
 	
 	
 	
@@ -112,11 +118,12 @@ public class FlightSearch {
 		wait.until(ExpectedConditions.visibilityOf(datePicker));
 		action.moveToElement(datePicker).perform();
 		datePicker.click();
-		js.executeScript("arguments[0].click()", dateAug29th);
+		js.executeScript("arguments[0].click()", dateforOneWay);
 //	Traveler,Class script
 		action.moveToElement(travellersandclass).perform();
 		
 		search.click();
+		wait.until(ExpectedConditions.visibilityOf(searchResult));
 	}
 	
 	
@@ -142,8 +149,8 @@ public class FlightSearch {
 		wait.until(ExpectedConditions.visibilityOf(datePicker));
 		action.moveToElement(datePicker).perform();
 		datePicker.click();
-		js.executeScript("arguments[0].click()", dateAug29th);
-		js.executeScript("arguments[0].click()", dateAug31st);
+		js.executeScript("arguments[0].click()", dateforOneWay);
+		js.executeScript("arguments[0].click()", dateforRoundTrip);
 //	Traveler, class script
 		action.moveToElement(travellersandclass).perform();
 		wait.until(ExpectedConditions.visibilityOf(travellersandclass));
@@ -156,6 +163,7 @@ public class FlightSearch {
 		
 		wait.until(ExpectedConditions.visibilityOf(search));
 		search.click();
+		wait.until(ExpectedConditions.visibilityOf(searchResult));
 					
 	}
 	
@@ -182,7 +190,7 @@ public class FlightSearch {
 		
 		wait.until(ExpectedConditions.visibilityOf(search));
 		action.moveToElement(search).perform();
-		search.click();						
+		search.click();
 		
 	}
 	
@@ -238,12 +246,12 @@ public class FlightSearch {
 		dateAug1st.click();
 		js.executeScript("arguments[0].scrollIntoView(true);", banner);
 		js.executeScript("arguments[0].click()", multiSearch);
+		wait.until(ExpectedConditions.visibilityOf(searchResult2));
 		
 		
 	}
 	
 	public void flightsearchTeardown(WebDriver driver) {
-		wait.until(ExpectedConditions.visibilityOf(searchResult));
 		if(driver != null) {
 			driver.quit();
 		}

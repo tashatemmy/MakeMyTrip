@@ -36,6 +36,8 @@ public class Login {
 	String password = "Tashatemmy21$";
 	String invalidPword = "Tashatemmy";
 	String invalidNumber = "22224444789";
+	String invalidText = "Either Username or Password is incorrect";
+	String invalidPhoneText = "Invalid phone number";
 	
 	
 	public Login(WebDriver driver) {
@@ -61,7 +63,7 @@ public class Login {
 		
 	}
 	
-	public void invalidpasswordLogin() throws InterruptedException {
+	public void invalidpasswordLogin() {
 		wait.until(ExpectedConditions.visibilityOf(createAccountForm));
 		createAccountForm.isDisplayed();
 		emailMobileInput.sendKeys(email);
@@ -71,16 +73,17 @@ public class Login {
 		accountPassword.sendKeys(invalidPword);
 		wait.until(ExpectedConditions.elementToBeClickable(login));
 		login.click();
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.textToBePresentInElement(createAccountForm, invalidText));
+		wait.until(ExpectedConditions.visibilityOf(login));
 		js.executeScript("arguments[0].remove()", createAccountForm);
 	}
 	
-	public void invalidmobileLogin() throws InterruptedException {
+	public void invalidmobileLogin() {
 		wait.until(ExpectedConditions.visibilityOf(createAccountForm));
 		createAccountForm.isDisplayed();
 		emailMobileInput.sendKeys(invalidNumber);
 		continueButton.click();
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.textToBePresentInElement(createAccountForm, invalidPhoneText));
 	}
 	
 	

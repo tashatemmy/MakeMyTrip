@@ -13,25 +13,26 @@ public class LoginTest extends Base {
 	}
 	
 	@Test(groups = {"login", "regression", "negative"}, priority = 2)
-	public void invalidPasswordTest() throws InterruptedException {
+	public void invalidPasswordTest() {
 		Login login = new Login(driver);
 		login.invalidpasswordLogin();
 		
 	}
 	
 	@Test(groups = {"login", "regression", "negative"}, priority = 3)
- 	public void invalidMobileTest() throws InterruptedException {
+ 	public void invalidMobileTest() {
 		Login login = new Login(driver);
 		login.invalidmobileLogin();
 		
 	}
 	
 	@AfterMethod
-	public void tearDown() {
-		if (driver != null)
-		driver.close();
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
 	}
-
+	
 }
 
 

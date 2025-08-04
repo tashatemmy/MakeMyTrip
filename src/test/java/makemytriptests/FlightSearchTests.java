@@ -1,7 +1,6 @@
 package makemytriptests;
 
 import org.testng.annotations.Test;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import makemytrippages.FlightSearch;
@@ -46,16 +45,11 @@ public class FlightSearchTests extends Base {
 	
 
 	@AfterMethod(alwaysRun = true)
-	public void teardown(ITestResult result) {
-		String[] groups = result.getMethod().getGroups();
-	    for (String group : groups) {
-	        if (group.equals("positive")) {
+	public void teardown() {
 		FlightSearch fs = new FlightSearch(driver);
 		fs.flightsearchTeardown(driver);
-	        }else if (group.equals("negative") & driver != null ){
-	        	driver.close();
-	        }
+	 
 	}
-	}
+	
 
 }

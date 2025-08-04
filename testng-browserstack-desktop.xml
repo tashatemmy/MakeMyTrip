@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="BrowserStack Desktop Suite" parallel="tests" thread-count="3">
+  <test name="BS Chrome Test">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="os" value="Windows"/>
+    <parameter name="osVersion" value="11"/>
+    <classes>
+     <class name="makemytriptests.LoginTest"/> 
+    </classes>
+  </test>
+
+  <test name="BS Firefox Test">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="os" value="OS X"/>
+    <parameter name="osVersion" value="Monterey"/>
+    <classes>
+      <class name="makemytriptests.LoginTest"/>
+    </classes>
+  </test>
+</suite>
