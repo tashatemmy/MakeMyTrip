@@ -3,7 +3,8 @@
   <groupId>com.makemytrip</groupId>
   <artifactId>makemytrip</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <properties>   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <properties>  
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
 </properties>
@@ -25,6 +26,8 @@
             <configuration>
                 <suiteXmlFiles>
                     <suiteXmlFile>testng.xml</suiteXmlFile>
+                    <suiteXmlFile>testng-browserstack-desktop.xml</suiteXmlFile>
+                    <suiteXmlFile>testng-browserstack-mobile.xml</suiteXmlFile>
                 </suiteXmlFiles>
             </configuration>
         </plugin>
@@ -53,10 +56,12 @@
     <version>7.10.1</version> <!-- Or latest stable -->
     <scope>test</scope>
 </dependency>
+<!-- 
   	<dependency>
   		<groupId>com.browserstack</groupId>
   		<artifactId>testng-browserstack</artifactId>
   		<version>1.0-SNAPSHOT</version>
   	</dependency>
+  	-->  <!-- This is used for  BrowserStack’s specific Java SDK -->
   </dependencies>
 </project>
