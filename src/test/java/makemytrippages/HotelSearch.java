@@ -26,6 +26,7 @@ public class HotelSearch {
 		js = (JavascriptExecutor) driver;
 		
 	}
+	
 	@FindBy(xpath = "//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/span")
 	WebElement modalClose;
 	@FindBy(xpath = "//*[@id=\"SW\"]/div[1]/div[2]/div/div/nav/ul/li[2]/span/a")
@@ -47,6 +48,7 @@ public class HotelSearch {
 	
 	
 	public void validHotelSearch() {
+		wait.until(ExpectedConditions.visibilityOf(modalClose));
 		js.executeScript("arguments[0].click();", modalClose);
 		wait.until(ExpectedConditions.visibilityOf(hotels));
 		hotels.click();
@@ -54,7 +56,7 @@ public class HotelSearch {
 		cityfield.click();
 		wait.until(ExpectedConditions.visibilityOf(cityInputArea));
 		cityInputArea.sendKeys("Baltimore, MaryLand, United States");
-		wait.until(ExpectedConditions.elementToBeClickable(cityInputArea));
+		
 		
 		cityInputArea.sendKeys(Keys.ARROW_DOWN);
 		cityInputArea.sendKeys(Keys.ENTER);

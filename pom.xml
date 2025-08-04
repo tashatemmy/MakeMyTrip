@@ -53,5 +53,10 @@
     <version>7.10.1</version> <!-- Or latest stable -->
     <scope>test</scope>
 </dependency>
-</dependencies>
+  	<dependency>
+  		<groupId>com.browserstack</groupId>
+  		<artifactId>testng-browserstack</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
