@@ -28,7 +28,7 @@ public class Base {
 	    @BeforeMethod
 	    @Parameters({"env", "browser", "os", "osVersion", "device", "realMobile"})
 	    public void browserSetup(
-	    		@Optional("local") String env,
+	    		@Optional("useBrowserStack") String env,
 	    		@Optional("chrome") String browser,
                 @Optional("Windows") String os,
                 @Optional("11") String osVersion,
@@ -84,6 +84,7 @@ public class Base {
 	        }else {
 	        	System.out.println("Select env local or browserstack");
 	        }
+	        System.out.println("Running tests in environment: " + env);
 
 	        driver.get(url);
 	    }

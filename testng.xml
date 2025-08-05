@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Local Test Suite" parallel="false">
-  <test name="MakeMyTripTest">
+<suite name="Local Test Suite" parallel="tests" thread-count="2">
+  <test name="Chrome MakeMyTripTest">
   	<parameter name="env" value="local"/>
   	<parameter name="browser" value="chrome"/>
     <classes>
@@ -11,15 +11,15 @@
     </classes>
   </test> <!-- Test -->
   
-  <!-- 
-  <test name="MakeMyTripTest">
+  
+  <test name="Firefox MakeMyTripTest">
   	<parameter name="env" value="local"/>
-  	<parameter name="browser" value="chrome"/>
+  	<parameter name="browser" value="firefox"/>
     <classes>
       <class name="makemytriptests.LoginTest"/>
       <class name="makemytriptests.FlightSearchTests"/>
       <class name="makemytriptests.HotelSearchTest"/>
     </classes>
   </test>
-  -->
+  
 </suite> <!-- Suite -->

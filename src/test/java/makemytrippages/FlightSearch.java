@@ -88,6 +88,8 @@ public class FlightSearch {
 	WebElement searchResult;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/div/div/nav/ul/li[1]/span/a")
 	WebElement searchResult2;
+	@FindBy(xpath ="//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/div[1]/div/span")
+	WebElement close;
 	
 	
 	

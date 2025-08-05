@@ -25,9 +25,7 @@
             <version>3.1.2</version>
             <configuration>
                 <suiteXmlFiles>
-                    <suiteXmlFile>testng.xml</suiteXmlFile>
                     <suiteXmlFile>testng-browserstack-desktop.xml</suiteXmlFile>
-                    <suiteXmlFile>testng-browserstack-mobile.xml</suiteXmlFile>
                 </suiteXmlFiles>
             </configuration>
         </plugin>
@@ -64,4 +62,30 @@
   	</dependency>
   	-->  <!-- This is used for  BrowserStack’s specific Java SDK -->
   </dependencies>
+  <profiles>
+    <!-- Local Profile -->
+    <profile>
+        <id>local</id>
+        <properties>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+        </properties>
+    </profile>
+
+    <!-- BrowserStack Desktop Profile -->
+    <profile>
+        <id>browserstack-desktop</id>
+        <properties>
+            <suiteXmlFile>testng-browserstack-desktop.xml</suiteXmlFile>
+        </properties>
+    </profile>
+
+    <!-- BrowserStack Mobile Profile -->
+    <profile>
+        <id>browserstack-mobile</id>
+        <properties>
+            <suiteXmlFile>testng-browserstack-mobile.xml</suiteXmlFile>
+        </properties>
+    </profile>
+</profiles>
+
 </project>

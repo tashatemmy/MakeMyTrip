@@ -85,6 +85,12 @@ public class Login {
 		continueButton.click();
 		wait.until(ExpectedConditions.textToBePresentInElement(createAccountForm, invalidPhoneText));
 	}
+	public void closeLogin() {
+		wait.until(ExpectedConditions.visibilityOf(createAccountForm));
+		createAccountForm.isDisplayed();
+		wait.until(ExpectedConditions.visibilityOf(close));
+		js.executeScript("arguments[0].click()", close);
+	}
 	
 	
 	
