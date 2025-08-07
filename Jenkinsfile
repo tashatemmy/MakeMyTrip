@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Securing credentials via Jenkins > Credentials (preferred)
         BROWSERSTACK_USERNAME = 'temiodey_QnwJWA'
         BROWSERSTACK_ACCESS_KEY = 'uFS2paa7xTSUzM7fq2A5'
     }
@@ -13,7 +12,6 @@ pipeline {
                 git url: 'https://github.com/tashatemmy/MakeMyTrip.git', branch: 'main'
             }
         }
-     }
 
         stage('Verify Maven Setup') {
             steps {
@@ -35,8 +33,7 @@ pipeline {
                 sh 'mvn test -Dsurefire.suiteXmlFiles=testng-local.xml'
             }
         }
-
-        
+    }
 
     post {
         always {
