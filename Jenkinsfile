@@ -13,6 +13,7 @@ pipeline {
                 git url: 'https://github.com/tashatemmy/MakeMyTrip.git', branch: 'main'
             }
         }
+     }
 
         stage('Verify Maven Setup') {
             steps {
