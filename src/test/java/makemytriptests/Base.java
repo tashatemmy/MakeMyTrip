@@ -12,9 +12,12 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.lang.reflect.Method;
 
 
 public class Base {
@@ -28,12 +31,13 @@ public class Base {
 	    @BeforeMethod
 	    @Parameters({"env", "browser", "os", "osVersion", "device", "realMobile"})
 	    public void browserSetup(
-	    		@Optional("useBrowserStack") String env,
+	    		@Optional("local") String env,
 	    		@Optional("chrome") String browser,
                 @Optional("Windows") String os,
                 @Optional("11") String osVersion,
                 @Optional("") String device,
-                @Optional("false") String realMobile
+                @Optional("false") String realMobile,
+                Method method
                 ) throws MalformedURLException {
 	    	
 	    	this.env = env;
@@ -44,16 +48,33 @@ public class Base {
 	        if (env.equalsIgnoreCase("useBrowserStack")) {
 	        	// ✅ Create correct capabilities structure (REQUIRED by BrowserStack)
 	            HashMap<String, Object> browserstackOptions = new HashMap<>();
-	            browserstackOptions.put("os", os);
 	            browserstackOptions.put("osVersion", osVersion);
 	            browserstackOptions.put("projectName", "MakeMyTrip QA");
-	            browserstackOptions.put("buildName", "Cross Platform Build");
-	            browserstackOptions.put("sessionName", "MakeMyTripTest");
 	            browserstackOptions.put("idleTimeout", 180);  // in seconds
+	            
+	            String methodName = method.getName();
+	            String className = method.getDeclaringClass().getSimpleName();
+	            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+	            String buildName = "Cross Platform Build - " + browser + " - " + className + " - " + timestamp;
+	            String sessionName = "Test: " + method.getClass() + " - " + methodName + " - " + timestamp;
+	            
+	            
+
+	            browserstackOptions.put("buildName", buildName);
+	            browserstackOptions.put("sessionName", sessionName);
+
+	            
+	         // 🔍 Enable logs for better debugging
+	            browserstackOptions.put("debug", true); // Visual logs
+	            browserstackOptions.put("consoleLogs", "info"); // Console logs: info|debug|errors
+	            browserstackOptions.put("networkLogs", true); // Capture network logs
+
 
 	            if (!device.isEmpty()) {
 	                browserstackOptions.put("deviceName", device);
 	                browserstackOptions.put("realMobile", Boolean.parseBoolean(realMobile));
+	            }else {
+	            	browserstackOptions.put("os", os);
 	            }
 	            
 	            DesiredCapabilities caps = new DesiredCapabilities();

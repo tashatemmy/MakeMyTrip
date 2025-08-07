@@ -29,8 +29,10 @@ public class Login {
 	WebElement accountPassword;
 	@FindBy(xpath ="//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/form/div[2]/button")
 	WebElement login;
-	@FindBy(xpath ="//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/div[1]/div/span")
+	@FindBy(xpath = "//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/span")
 	WebElement close;
+	@FindBy(xpath = "//*[@id=\"SW\"]/div[1]/div[2]/div[2]/div/section/div[1]/div/span")
+	WebElement loginClose;
 	
 	String email = "temmydiva21@gmail.com";
 	String password = "Tashatemmy21$";
@@ -57,8 +59,8 @@ public class Login {
 	accountPassword.sendKeys(password);
 	wait.until(ExpectedConditions.elementToBeClickable(login));
 	login.click();
-	wait.until(ExpectedConditions.visibilityOf(close));
-	js.executeScript("arguments[0].click()", close);
+	wait.until(ExpectedConditions.visibilityOf(loginClose));
+	js.executeScript("arguments[0].click()", loginClose);
 	
 		
 	}

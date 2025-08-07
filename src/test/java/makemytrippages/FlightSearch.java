@@ -21,7 +21,7 @@ public class FlightSearch {
 	public FlightSearch(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		action = new Actions(driver);
-		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait = new WebDriverWait(driver,Duration.ofSeconds(30));
 		js = (JavascriptExecutor) driver;
 	}
 	

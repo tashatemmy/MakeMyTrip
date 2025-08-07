@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // Secure your credentials via Jenkins > Credentials (preferred)
+        // Securing credentials via Jenkins > Credentials (preferred)
         BROWSERSTACK_USERNAME = 'temiodey_QnwJWA'
         BROWSERSTACK_ACCESS_KEY = 'uFS2paa7xTSUzM7fq2A5'
     }
@@ -31,24 +31,11 @@ pipeline {
         stage('Run Local Tests') {
             steps {
                 echo '🖥️ Running local automation tests...'
-                sh 'mvn test -Dsurefire.suiteXmlFiles=testng.xml'
+                sh 'mvn test -Dsurefire.suiteXmlFiles=testng-local.xml'
             }
         }
 
-        stage('Run BrowserStack Desktop Tests') {
-            steps {
-                echo '📱 Running cross-platform tests on BrowserStack...'
-                sh 'mvn test -Dsurefire.suiteXmlFiles=testng-browserstack-desktop.xml'
-            }
-        }
         
-        stage('Run BrowserStack Mobile Tests') {
-            steps {
-                echo '📱 Running cross-platform tests on BrowserStack...'
-                sh 'mvn test -Dsurefire.suiteXmlFiles=testng-browserstack-desktop.xml'
-            }
-        }
-    }
 
     post {
         always {

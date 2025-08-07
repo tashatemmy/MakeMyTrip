@@ -1,12 +1,14 @@
 package makemytriptests;
 
 import org.testng.annotations.Test;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import makemytrippages.FlightSearch;
 import makemytrippages.Login;
 
 public class FlightSearchTests extends Base {
-	
 	/**
 	@BeforeMethod
 	public void loginAccount() {
@@ -52,7 +54,12 @@ public class FlightSearchTests extends Base {
 	
 
 	@AfterMethod(alwaysRun = true)
-	public void teardown() {
+	public void teardown(ITestResult result) {
+	        if (env.equalsIgnoreCase("useBrowserstack") & result.getStatus() == ITestResult.SUCCESS) {
+	            ((JavascriptExecutor) driver).executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \"QC Passed - All validations successful.\"}}");
+	        } else if (env.equalsIgnoreCase("useBrowserstack") & result.getStatus() == ITestResult.FAILURE) {
+	            ((JavascriptExecutor) driver).executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"QC Failed - Test failed due to: " + result.getThrowable() + "\"}}");
+	        }
 		FlightSearch fs = new FlightSearch(driver);
 		fs.flightsearchTeardown(driver);
 	 
