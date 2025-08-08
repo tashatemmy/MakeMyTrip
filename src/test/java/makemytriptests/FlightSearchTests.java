@@ -55,9 +55,9 @@ public class FlightSearchTests extends Base {
 
 	@AfterMethod(alwaysRun = true)
 	public void teardown(ITestResult result) {
-	        if (env.equalsIgnoreCase("useBrowserstack") & result.getStatus() == ITestResult.SUCCESS) {
+	        if (env.equalsIgnoreCase("useBrowserstack") && result.getStatus() == ITestResult.SUCCESS) {
 	            ((JavascriptExecutor) driver).executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \"QC Passed - All validations successful.\"}}");
-	        } else if (env.equalsIgnoreCase("useBrowserstack") & result.getStatus() == ITestResult.FAILURE) {
+	        } else if (env.equalsIgnoreCase("useBrowserstack") && result.getStatus() == ITestResult.FAILURE) {
 	            ((JavascriptExecutor) driver).executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"QC Failed - Test failed due to: " + result.getThrowable() + "\"}}");
 	        }
 		FlightSearch fs = new FlightSearch(driver);
