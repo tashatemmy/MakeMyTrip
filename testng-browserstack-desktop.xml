@@ -13,6 +13,7 @@
     </classes>
   </test>
 
+<!-- 
   <test name="BS Firefox Test">
   <parameter name="env" value="useBrowserStack"/>
     <parameter name="browser" value="firefox"/>
@@ -24,4 +25,6 @@
      <class name="makemytriptests.HotelSearchTest"/> 
     </classes>
   </test>
+  -->
 </suite>
+

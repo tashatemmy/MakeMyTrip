@@ -13,6 +13,7 @@ import org.testng.annotations.Parameters;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.net.MalformedURLException;
@@ -108,6 +109,8 @@ public class Base {
 	        System.out.println("Running tests in environment: " + env);
 
 	        driver.get(url);
+	        driver.manage().window().maximize();
+	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    }
 
 	   
