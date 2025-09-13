@@ -20,7 +20,7 @@ This project demonstrates: end-to-end manual and automated test coverage, testin
 
 ## 🎥 Automation Demo
 
-Watch the full test automation demo 👉 [MakeMyTrip.AutomationDemo](https://www.loom.com/share/ccd4f37297d64e54b695be56cd5d44f1?sid=3659a3d0-a04c-48af-b9f5-a00047784a65)
+Watch the full test automation demo 👉 [MakeMyTrip.AutomationDemo](https://www.loom.com/share/f0ff8aa3779742d0ad201b2424bb5928)
 
 
 ## GETTING STARTED
