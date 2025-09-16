@@ -2,15 +2,15 @@ This project is a Quality Assurance Product test for a simulated Flight and Hote
 
 This project demonstrates: end-to-end manual and automated test coverage, testing of realistic user flows on a booking website, Practice and present skills in Selenium automation, test design, and framework usage
 
-## Tested Features:
-# Manual Testing:
+# Tested Features:
+## Manual Testing:
 - Account Creation & Login (positive and negative scenarios)
 - One-way, Round-trip  and Multi-City Flight Search
 - Hotel Booking Functionality
 - Validation Messages (invalid input, required fields)
 - UI response (date pickers, filters)
 
-# Automated Testing (Selenium + Java + TestNG)
+## Automated Testing (Selenium + Java + TestNG)
 - Valid login with correct credentials
 - Invalid login with incorrect password
 -  One-way, Round Trip and Multi-City flight search with valid data
@@ -18,39 +18,39 @@ This project demonstrates: end-to-end manual and automated test coverage, testin
 - Form validation tests for invalid data
 - Regression and smoke test tagging using TestNG groups
 
-## 🎥 Automation Demo
+# 🎥 Automation Demo
 
 Watch the full test automation demo 👉 [MakeMyTrip.AutomationDemo](https://www.loom.com/share/f0ff8aa3779742d0ad201b2424bb5928)
 
 
-## GETTING STARTED
+# GETTING STARTED
 Follow the steps below to set up and run the automation tests:
 
-# 1. Clone the Repository
+## 1. Clone the Repository
 ```bash
 git clone https://github.com/tashatemmy/MakeMyTrip.git
 cd MakeMyTrip
 ```
-# 2. Open in Eclipse
+## 2. Open in Eclipse
 Launch Eclipse IDE
 
 Go to File → Import → Existing Maven Project
 
 Select the cloned project folder
 
-# 3. Install Dependencies
+## 3. Install Dependencies
 Maven will auto-download dependencies. If not, run:
 ```bash
 mvn clean install
 ```
-# 4. Configure & Run Tests
+## 4. Configure & Run Tests
 Ensure TestNG is installed in Eclipse
 
 Run all tests via testng.xml
 or
 Right-click any test class → Run As → TestNG Test
 
-# 5. View Test Results
+## 5. View Test Results
 Results appear in the Eclipse Console
 
 Test reports are saved under the /test-output folder (HTML format)
